@@ -12,7 +12,7 @@
 export default {
   components: {
     TheHeader: () => import('./components/TheHeader.vue'),
-    TheFooter: () => import('./components/TheFooter.vue')
+    TheFooter: () => import('./components/TheFooter.vue'),
   }
 }
 </script>
