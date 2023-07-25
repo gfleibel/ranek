@@ -73,17 +73,18 @@ img {
   transform: scale(1.1)
 }
 
-#app{
+#app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-#main{
+#main {
   flex: 1;
 }
 
-input, textarea{
+input,
+textarea {
   border-radius: 4px;
   border: 1px solid #fff;
   padding: 15px;
@@ -94,9 +95,30 @@ input, textarea{
   margin-bottom: 15px;
 }
 
-input:hover, input:focus, textarea:hover, textarea:focus{
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
   outline: none;
   box-shadow: 0 6px 12px rgba(30, 60, 90, .2);
   border-color: #87f;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter {
+  transform: translate3d(0, -20px, 0)
+}
+
+.v-leave-to {
+  transform: translate3d(0, 20px, 0)
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all .3s;
 }
 </style>
