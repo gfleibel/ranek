@@ -1,12 +1,85 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-    </nav>
-    <router-view/>
+    <TheHeader />
+    <main id="main">
+      <router-view />
+    </main>
+    <TheFooter />
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  components: {
+    TheHeader: () => import('./components/TheHeader.vue'),
+    TheFooter: () => import('./components/TheFooter.vue')
+  }
+}
+</script>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  color: #345;
+  background: url("./assets/pattern.svg") repeat top;
+}
+
+a {
+  color: #345;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.btn {
+  display: block;
+  padding: 10px 30px;
+  background: #87f;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 4px 8px rgba(0, 30, 60, 90, .2);
+  transition: all .3s;
+  border: none;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+
+}
+
+.btn:hover {
+  background: #65d;
+  transform: scale(1.1)
+}
+
+#app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main{
+  flex: 1;
+}
 </style>
