@@ -2,14 +2,20 @@
   <header>
     <nav>
       <router-link to="/" class="logo"><img src="@/assets/ranek.svg" alt="Ranek"></router-link>
-      <router-link to="/login" class="btn">Vender / Login</router-link>
+      <router-link v-if="$store.state.login" class="btn" to="/user">{{ name }}</router-link>
+      <router-link v-else to="/login" class="btn">Vender / Login</router-link>
     </nav>
   </header>
 </template>
 
 <script>
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  computed:{
+    name(){
+      return this.$store.state.user.name.replace(/ .*/,"")
+    }
+  }
 }
 </script>
 
@@ -22,11 +28,11 @@ nav {
   box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
 }
 
-.logo{
+.logo {
   padding: 10px 0;
 }
 
-.logo img{
+.logo img {
   width: 90px;
 }
 
