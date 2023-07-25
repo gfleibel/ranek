@@ -19,9 +19,9 @@ npm install
 npm run serve
 ```
 
-### Run json-server in same folder as api.json to access API
+### Run json-server in same folder as ranek.json to access API
 ```
-json-server api.json
+json-server ranek.json
 ```
 
 ### Compiles and minifies for production
