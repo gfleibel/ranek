@@ -1,9 +1,20 @@
 {
-  "user": [
+  "users": [
     {
       "id": "gfleibel@hotmail.com",
       "email": "gfleibel@hotmail.com",
       "name": "Gabriel Leibel",
+      "password": "123",
+      "address": "Rua Ali Perto",
+      "zipcode": "12345678",
+      "number": "25",
+      "state": "SP",
+      "city": "São Paulo"
+    },
+    {
+      "id": "m.virginiabianchi@gmail.com",
+      "email": "m.virginiabianchi@gmail.com",
+      "name": "Virginia Bianchi",
       "password": "123",
       "address": "Rua Ali Perto",
       "zipcode": "12345678",
