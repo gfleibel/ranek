@@ -1,20 +1,24 @@
 <template>
   <section class="products-container">
-    <div v-if="products && products.length" class="products">
-      <div v-for="(product, index) in products" :key="index" class="product">
-        <router-link to="/">
-          <img v-if="product.photos" :src="product.photos[0].src" :alt="product.photos[0].titulo">
-          <p class="price">{{ product.price }}</p>
-          <h2 class="title">{{ product.name }}</h2>
-          <p class="description">{{ product.description }}</p>
-        </router-link>
+    <transition mode="out-in">
+      <div v-if="products && products.length" class="products" key="products">
+        <div v-for="(product, index) in products" :key="index" class="product">
+          <router-link :to="{ name: 'produto', params: { id: product.id } }">
+            <img v-if="product.photos" :src="product.photos[0].src" :alt="product.photos[0].titulo">
+            <p class="price">{{ product.price | priceNumber}}</p>
+            <h2 class="title">{{ product.name }}</h2>
+            <p class="description">{{ product.description }}</p>
+          </router-link>
+        </div>
+        <PageProducts :totalProducts="totalProducts" :productsPerPage="productsPerPage" />
       </div>
-      <PageProducts :totalProducts="totalProducts" :productsPerPage="productsPerPage"/>
-    </div>
-    <div v-else-if="products.length === 0">
-      <p class="no-results">Busca sem resultados. Tente outro produto.</p>
-    </div>
-
+      <div v-else-if="products && products.length === 0">
+        <p class="no-results" key="no-results">Busca sem resultados. Tente outro produto.</p>
+      </div>
+      <div v-else key="loading">
+        <LoadingPage />
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -28,12 +32,12 @@ export default {
   data() {
     return {
       products: null,
-      productsPerPage: 6,
+      productsPerPage: 9,
       totalProducts: 0,
     }
   },
-  components:{
-    PageProducts : () => import('./PageProducts.vue')
+  components: {
+    PageProducts: () => import('./PageProducts.vue')
   },
   computed: {
     url() {
@@ -43,12 +47,14 @@ export default {
   },
   methods: {
     getProducts() {
-
-      api.get(this.url)
-        .then(response => {
-          this.totalProducts = Number(response.headers["x-total-count"]);
-          this.products = response.data;
-        })
+      this.products = null;
+      window.setTimeout(() => {
+        api.get(this.url)
+          .then(response => {
+            this.totalProducts = Number(response.headers["x-total-count"]);
+            this.products = response.data;
+          })
+      }, 1500);
     }
   },
   watch: {

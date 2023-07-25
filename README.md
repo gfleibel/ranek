@@ -1,14 +1,5 @@
 # Ranek
 
-## Access project on GH Pages
-
-### Download ranek.json from public folder
-### Run json-server in same folder as ranek.json to access API
-```
-json-server ranek.json
-```
-### Access https://gfleibel.github.io/ranek/
-
 ## Project setup
 ```
 npm install
