@@ -1,4 +1,48 @@
 {
+  "transactions": [
+    {
+      "buyer_id": "gfleibel@hotmail.com",
+      "seller_id": "gfleibel@hotmail.com",
+      "product": {
+        "id": "notebook",
+        "name": "Notebook",
+        "user_id": "gfleibel@hotmail.com",
+        "price": "4999",
+        "sold": "false",
+        "description": "Esse é um novo notebook.",
+        "photos": null
+      },
+      "address": {
+        "zipcode": "04543120",
+        "address": "Rua Doutor Eduardo de Souza Aranha",
+        "number": "140",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "id": 1
+    },
+    {
+      "buyer_id": "gabrielfleibel@gmail.com",
+      "seller_id": "gfleibel@hotmail.com",
+      "product": {
+        "id": "notebook",
+        "name": "Notebook",
+        "user_id": "gfleibel@hotmail.com",
+        "price": "4999",
+        "sold": "false",
+        "description": "Esse é um novo notebook.",
+        "photos": null
+      },
+      "address": {
+        "zipcode": "04543120",
+        "address": "Rua Doutor Eduardo de Souza Aranha",
+        "number": "140",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "id": 2
+    }
+  ],
   "user": [
     {
       "id": "gfleibel@hotmail.com",
@@ -19,6 +63,17 @@
       "address": "Rua Ali Perto",
       "zipcode": "12345678",
       "number": "25",
+      "state": "SP",
+      "city": "São Paulo"
+    },
+    {
+      "id": "gabrielfleibel@gmail.com",
+      "name": "maria v a k bianchi",
+      "email": "gabrielfleibel@gmail.com",
+      "password": "123",
+      "zipcode": "04543120",
+      "address": "Rua Doutor Eduardo de Souza Aranha",
+      "number": "140",
       "state": "SP",
       "city": "São Paulo"
     }
@@ -630,6 +685,15 @@
       "photos": null,
       "user_id": "m.virginiabianchi@gmail.com",
       "id": "Z6hvtXN"
+    },
+    {
+      "name": "Desktop Boladão",
+      "description": "dajdoiajsda",
+      "price": "10000",
+      "photos": null,
+      "sold": "false",
+      "user_id": "gfleibel@hotmail.com",
+      "id": "i8lpu3P"
     }
   ]
 }

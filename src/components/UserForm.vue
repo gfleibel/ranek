@@ -1,11 +1,13 @@
 <template>
   <form>
-    <label for="name">Nome</label>
-    <input type="text" id="name" name="name" v-model="name">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" v-model="email">
-    <label for="password">Senha</label>
-    <input type="password" id="password" name="password" v-model="password">
+    <div v-if="showLoginData" class="user">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" v-model="name">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" v-model="email">
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" v-model="password">
+    </div>
     <label for="zipcode">Cep</label>
     <input type="text" id="zipcode" name="zipcode" v-model="zipcode" @keyup="fillCep">
     <label for="address">Rua</label>
@@ -33,7 +35,10 @@ export default {
       fields: ["name", "email", "password", "zipcode", "address", "number", "city", "state"],
       base: "user",
       mutation: "UPDATE_USER"
-    })
+    }),
+    showLoginData() {
+      return (!this.$store.state.login || (this.$route.name === "edit-user"))
+    }
   },
   methods: {
     fillCep() {
@@ -51,12 +56,15 @@ export default {
 </script>
 
 <style scoped>
-form {
+form, .user {
   display: grid;
   grid-template-columns: 80px 1fr;
   align-items: center;
 }
 
+.user{
+  grid-column: 1 / 3;
+}
 .button {
   grid-column: 2;
   margin-top: 10px;

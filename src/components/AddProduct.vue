@@ -23,7 +23,8 @@ export default {
         name: '',
         description: '',
         price: '',
-        photos: null
+        photos: null,
+        sold: "false",
       }
     }
   },
