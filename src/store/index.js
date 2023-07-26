@@ -1,71 +1,72 @@
-import { api } from "@/services.js";
 import Vue from "vue";
 import Vuex from "vuex";
-
+import { api } from "@/services.js";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: true,
   state: {
     login: false,
-    user: {
+    usuario: {
       id: "",
-      name: "",
+      nome: "",
       email: "",
-      password: "",
-      zipcode: "",
-      address: "",
-      number: "",
-      state: "",
-      city: "",
+      senha: "",
+      cep: "",
+      rua: "",
+      numero: "",
+      bairro: "",
+      cidade: "",
+      estado: ""
     },
-    user_products: null,
+    usuario_produtos: null
   },
-  getters: {},
   mutations: {
     UPDATE_LOGIN(state, payload) {
       state.login = payload;
     },
-    UPDATE_USER(state, payload) {
-      state.user = Object.assign(state.user, payload);
+    UPDATE_USUARIO(state, payload) {
+      state.usuario = Object.assign(state.usuario, payload);
     },
-    UPDATE_USER_PRODUCTS(state, payload) {
-      state.user_products = payload;
+    UPDATE_USUARIO_PRODUTOS(state, payload) {
+      state.usuario_produtos = payload;
     },
-    ADD_USER_PRODUCTS(state, payload) {
-      state.user_products.unshift(payload);
-    },
+    ADD_USUARIO_PRODUTOS(state, payload) {
+      state.usuario_produtos.unshit(payload);
+    }
   },
   actions: {
-    getUserProducts(context) {
-      api.get(`/products?user_id=${context.state.user.id}`).then((response) => {
-        context.commit("UPDATE_USER_PRODUCTS", response.data);
-      });
+    getUsuarioProdutos(context) {
+      api
+        .get(`/produto?usuario_id=${context.state.usuario.id}`)
+        .then(response => {
+          context.commit("UPDATE_USUARIO_PRODUTOS", response.data);
+        });
     },
-    getUser(context, payload) {
-      return api.get(`/user/${payload}`).then((response) => {
-        context.commit("UPDATE_USER", response.data);
+    getUsuario(context, payload) {
+      return api.get(`/usuario/${payload}`).then(response => {
+        context.commit("UPDATE_USUARIO", response.data);
         context.commit("UPDATE_LOGIN", true);
       });
     },
-    createUser(context, payload) {
-      context.commit("UPDATE_USER", { id: payload.email });
-      return api.post("/user", payload);
+    criarUsuario(context, payload) {
+      context.commit("UPDATE_USUARIO", { id: payload.email });
+      return api.post("/usuario", payload);
     },
-    logoff(context) {
-      context.commit("UPDATE_USER", {
+    deslogarUsuario(context) {
+      context.commit("UPDATE_USUARIO", {
         id: "",
-        name: "",
+        nome: "",
         email: "",
-        password: "",
-        zipcode: "",
-        address: "",
-        number: "",
-        state: "",
-        city: "",
+        senha: "",
+        cep: "",
+        rua: "",
+        numero: "",
+        bairro: "",
+        cidade: "",
+        estado: ""
       });
       context.commit("UPDATE_LOGIN", false);
-    },
-  },
-  modules: {},
+    }
+  }
 });

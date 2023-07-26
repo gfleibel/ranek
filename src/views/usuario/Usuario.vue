@@ -1,21 +1,21 @@
 <template>
-  <section class="user">
+  <section class="usuario">
     <nav class="sidenav">
       <ul>
         <li>
-          <router-link :to="{ name: 'user' }">Produtos</router-link>
+          <router-link :to="{name: 'usuario'}">Produtos</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'purchases' }">Compras</router-link>
+          <router-link :to="{name: 'compras'}">Compras</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'sales' }">Vendas</router-link>
+          <router-link :to="{name: 'vendas'}">Vendas</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'edit-user' }">Editar Usuário</router-link>
+          <router-link :to="{name: 'usuario-editar'}">Editar Usuário</router-link>
         </li>
         <li>
-          <button @click.prevent="logoff">Sair</button>
+          <button @click="deslogar">Deslogar</button>
         </li>
       </ul>
     </nav>
@@ -27,18 +27,18 @@
 
 <script>
 export default {
-  name: "UserView",
+  name: "Usuario",
   methods: {
-    logoff() {
-      this.$store.dispatch('logoff');
+    deslogar() {
+      this.$store.dispatch("deslogarUsuario");
       this.$router.push("/login");
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.user {
+.usuario {
   display: grid;
   grid-template-columns: minmax(140px, 200px) 1fr;
   max-width: 900px;
@@ -48,7 +48,7 @@ export default {
 }
 
 @media screen and (max-width: 500px) {
-  .user {
+  .usuario {
     grid-template-columns: 1fr;
     margin: 0px auto;
   }
@@ -75,7 +75,7 @@ export default {
   width: 100%;
   font-size: 1rem;
   text-align: left;
-  font-family: 'Avenir', Arial, Helvetica, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <footer>
-    <p>Ranek. Alguns direitos reservados</p>
+    <p>Ranek. Alguns direitos reservados.</p>
   </footer>
 </template>
 
 <script>
 export default {
   name: "TheFooter"
-}
+};
 </script>
 
 <style scoped>

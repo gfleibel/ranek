@@ -1,27 +1,27 @@
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
+import router from "@/router/index.js";
 import store from "./store";
-import LoadingPage from "@/components/LoadingPage.vue";
+import PaginaCarregando from "@/components/PaginaCarregando.vue";
 
 Vue.config.productionTip = false;
 
-Vue.component("LoadingPage", LoadingPage);
+Vue.component("PaginaCarregando", PaginaCarregando);
 
-Vue.filter("priceNumber", value => {
-  value = Number(value);
-  if(!isNaN(value)){
-    return value.toLocaleString("pt-BR", {
+Vue.filter("numeroPreco", valor => {
+  valor = Number(valor);
+  if (!isNaN(valor)) {
+    return valor.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL"
-    })
+    });
   } else {
-    return ""
+    return "";
   }
-})
+});
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
