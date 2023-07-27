@@ -6,13 +6,13 @@
         <ProdutoItem v-if="venda.produto" :produto="venda.produto">
           <p class="vendedor">
             <span>Comprador:</span>
-            {{venda.comprador_id}}
+            {{ venda.comprador_id }}
           </p>
         </ProdutoItem>
         <div class="entrega">
           <h3>Entrega:</h3>
           <ul v-if="venda.endereco">
-            <li v-for="(value, key) in venda.endereco" :key="key">{{key}}: {{value}}</li>
+            <li v-for="(value, key) in venda.endereco" :key="key">{{ key }}: {{ value }}</li>
           </ul>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     getVendas() {
-      api.get(`/transacao?vendedor_id=${this.usuario.id}`).then(response => {
+      api.get(`/transacao?tipo=vendedor_id`).then(response => {
         this.vendas = response.data;
       });
     }

@@ -6,7 +6,7 @@
         <ProdutoItem v-if="compra.produto" :produto="compra.produto">
           <p class="vendedor">
             <span>Vendedor:</span>
-            {{compra.vendedor_id}}
+            {{ compra.vendedor_id }}
           </p>
         </ProdutoItem>
       </div>
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     getCompras() {
-      api.get(`/transacao?comprador_id=${this.usuario.id}`).then(response => {
+      api.get(`/transacao?tipo=comprador_id`).then(response => {
         this.compras = response.data;
       });
     }
