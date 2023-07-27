@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>Crie a Sua Conta</h2>
+    <ErroNotificacao :erros="erros"/>
     <transition mode="out-in">
       <button v-if="!criar" class="btn" @click="criar = true">Criar Conta</button>
       <UsuarioForm v-else>
@@ -12,26 +13,30 @@
 
 <script>
 import UsuarioForm from "@/components/UsuarioForm.vue";
+import ErroNotificacao from "./ErroNotificacao.vue";
 
 export default {
   name: "LoginCriar",
   components: {
-    UsuarioForm
-  },
+    UsuarioForm,
+    ErroNotificacao
+},
   data() {
     return {
-      criar: false
+      criar: false,
+      erros: [],
     };
   },
   methods: {
     async criarUsuario() {
+      this.erros = [];
       try {
         await this.$store.dispatch("criarUsuario", this.$store.state.usuario);
         await this.$store.dispatch("logarUsuario", this.$store.state.usuario);
         await this.$store.dispatch("getUsuario");
         this.$router.push({ name: "usuario" });
       } catch (error) {
-        console.log(error);
+        this.erros.push(error.response.data.message);
       }
     }
   }
