@@ -6,7 +6,7 @@
         <ProdutoItem v-if="compra.produto" :produto="compra.produto">
           <p class="vendedor">
             <span>Vendedor:</span>
-            {{ compra.vendedor_id }}
+            {{compra.vendedor_id}}
           </p>
         </ProdutoItem>
       </div>
