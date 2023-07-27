@@ -7,17 +7,17 @@
         </li>
       </ul>
       <div class="info">
-        <h1>{{produto.nome}}</h1>
-        <p class="preco">{{produto.preco | numeroPreco}}</p>
-        <p class="descricao">{{produto.descricao}}</p>
+        <h1>{{ produto.nome }}</h1>
+        <p class="preco">{{ produto.preco | numeroPreco }}</p>
+        <p class="descricao">{{ produto.descricao }}</p>
         <transition mode="out-in" v-if="produto.vendido === 'false'">
           <button class="btn" v-if="!finalizar" @click="finalizar = true">Comprar</button>
-          <FinalizarCompra v-else :produto="produto"/>
+          <FinalizarCompra v-else :produto="produto" />
         </transition>
         <button v-else class="btn btn-disabled" disabled>Produto Vendido</button>
       </div>
     </div>
-    <PaginaCarregando v-else/>
+    <PaginaCarregando v-else />
   </section>
 </template>
 
@@ -89,5 +89,17 @@ img {
 .btn {
   margin-top: 60px;
   width: 200px;
+}
+
+@media screen and (max-width: 500px) {
+  .produto {
+    grid-template-columns: 1fr;
+  }
+  .fotos {
+    grid-row: 2;
+  }
+  .info {
+    position: initial;
+  }
 }
 </style>
