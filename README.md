@@ -1,5 +1,3 @@
-![image](https://github.com/gfleibel/ranek/assets/99811494/ee7dd91a-be47-4616-a52a-093df4cea876)# Ranek
-
 ## Project setup
 ```
 npm install
