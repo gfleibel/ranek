@@ -1,4 +1,4 @@
-# Ranek
+![image](https://github.com/gfleibel/ranek/assets/99811494/ee7dd91a-be47-4616-a52a-093df4cea876)# Ranek
 
 ## Project setup
 ```
@@ -24,3 +24,6 @@ npm run build
 ```
 npm run lint
 ```
+
+## Published website
+https://ranek-vue-app.netlify.app/
