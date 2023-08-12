@@ -10,7 +10,7 @@
       <ErroNotificacao :erros="erros"/>
     </form>
     <p class="perdeu">
-      <a href="http://apiranek.local/wp-login.php?action=lostpassword" target="_blank">Perdeu a senha? Clique aqui.</a>
+      <a href="https://ranekapi.origamid.dev/wp-login.php?action=lostpassword" target="_blank">Perdeu a senha? Clique aqui.</a>
     </p>
     <LoginCriar/>
   </section>

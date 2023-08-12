@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://apiranek.local/wp-json/api",
+  baseURL: "https://ranekapi.origamid.dev/json/api",
 });
 
 axiosInstance.interceptors.request.use(
@@ -31,11 +31,11 @@ export const api = {
     return axiosInstance.delete(endpoint);
   },
   login(body) {
-    return axios.post("http://apiranek.local/wp-json/jwt-auth/v1/token", body);
+    return axios.post("https://ranekapi.origamid.dev/json/jwt-auth/v1/token", body);
   },
   validateToken() {
     return axiosInstance.post(
-      "http://apiranek.local/wp-json/jwt-auth/v1/token/validate"
+      "https://ranekapi.origamid.dev/json/jwt-auth/v1/token/validate"
     );
   },
 };
